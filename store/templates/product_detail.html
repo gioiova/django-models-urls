@@ -1,18 +1,11 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{product.name}}</title>
-  </head>
-  <body>
-    <h1>{{product.name}}</h1>
-    <p>Price: ${{product.price}}</p>
-    <p>Description: {{product.description}}</p>
-    <p>Stock: {{product.stock}}</p>
-    <p>Category: {{product.category.name}}</p>
-    <p>Sale: {% if product.is_sale %}Yes{% else %}No{% endif %}</p>
-    <p>Created: {{product.created_at}}</p>
-    <a href="{% url 'store:index'%}">Back to Home</a>
-  </body>
-</html>
+{% extends 'base.html' %} {% block title %}{{ product.name }}{% endblock %}
+{%block content %}
+<h1>{{ product.name }}</h1>
+<p>Price: ${{ product.price }}</p>
+<p>Description: {{ product.description }}</p>
+<p>Stock: {{ product.stock }}</p>
+<p>Category: {{ product.category.name }}</p>
+<p>Sale: {% if product.is_sale %}Yes{% else %}No{% endif %}</p>
+<p>Created: {{ product.created_at }}</p>
+<a href="{% url 'store:index' %}">Back to Home</a>
+{% endblock %}

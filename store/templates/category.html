@@ -1,22 +1,22 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ category.name }}</title>
-  </head>
-  <body>
-    <h1>{{ category.name }}</h1>
-    <ul>
-      {% for product in products %}
-      <li>
-        {{ product.name }} - ${{ product.price }} {% if product.is_sale %}
-        <strong>SALE</strong>
-        {% endif %}
-      </li>
-      {% endfor %}
-    </ul>
+{% extends 'base.html' %}
+{% load static %}
 
-    <a href="{% url 'store:index'%}">Back to Home</a>
-  </body>
-</html>
+{% block title %}{{ category.name }}{% endblock %}
+
+{% block content %}
+
+<h1>{{ category.name }}</h1>
+
+<div class="row g-4">
+
+    {% for product in products %}
+        {% include 'includes/product_card.html' %}
+    {% empty %}
+        <p>No products available.</p>
+    {% endfor %}
+
+</div>
+
+<a href="{% url 'store:index' %}">Back to Home</a>
+
+{% endblock %}

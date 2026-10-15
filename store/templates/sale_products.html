@@ -1,18 +1,15 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sale Products</title>
-  </head>
-  <body>
-    <h1>Sale Products</h1>
-    <ul>
-      {% for product in sale_products %}
-      <li>{{ product.name }} - ${{ product.price }}</li>
-      {% endfor %}
-    </ul>
+{% extends 'base.html' %} {% block title %}Sale Products{% endblock %} 
 
-    <a href="{% url 'store:index'%}">Back to Home</a>
-  </body>
-</html>
+{% block content %}
+<h1>Sale Products</h1>
+<div class="row g-4">
+
+    {% for product in sale_products %}
+        {% include 'includes/product_card.html' %}
+    {% empty %}
+        <p>No products available.</p>
+    {% endfor %}
+
+</div>
+<a href="{% url 'store:index' %}">Back to Home</a>
+{% endblock %}

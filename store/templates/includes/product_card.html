@@ -1,0 +1,81 @@
+{% load static %}
+
+<div class="col-md-6 col-lg-4 col-xl-3">
+    <div class="product-item rounded wow fadeInUp" data-wow-delay="0.1s">
+        <div class="product-item-inner border rounded">
+
+            <div class="product-item-inner-item">
+                <img src="{% static 'img/product-3.png' %}"
+                     class="img-fluid w-100 rounded-top"
+                     alt="{{ product.name }}">
+
+                <div class="product-new">New</div>
+
+                <div class="product-details">
+                    <a href="{% url 'store:product_detail' product.id %}">
+                        <i class="fa fa-eye fa-1x"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center rounded-bottom p-4">
+                <a href="#" class="d-block mb-2">
+                    {{ product.category }}
+                </a>
+
+                <a href="{% url 'store:product_detail' product.id %}"
+                   class="d-block h4">
+                    {{ product.name }}
+                </a>
+
+                <span class="text-primary fs-5">
+                    {{ product.price }}
+                </span>
+
+                <p>Stock: {{ product.stock }}</p>
+            </div>
+
+            <a href="{% url 'store:delete_product' product.pk %}"
+            class="btn btn-outline-danger btn-sm rounded-pill mt-2">
+                <i class="fas fa-trash me-1"></i>
+                Delete
+            </a>
+
+        </div>
+
+        <div class="product-item-add border border-top-0 rounded-bottom text-center p-4 pt-0">
+            <a href="{% url 'store:product_detail' product.pk %}" class="btn btn-primary border-secondary rounded-pill py-2 px-4 mb-4">
+                <i class="fas fa-shopping-cart me-2"></i>
+                Detail View
+            </a>
+
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex">
+                    <i class="fas fa-star text-primary"></i>
+                    <i class="fas fa-star text-primary"></i>
+                    <i class="fas fa-star text-primary"></i>
+                    <i class="fas fa-star text-primary"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+
+                <div class="d-flex">
+                    <a href="#"
+                       class="text-primary d-flex align-items-center justify-content-center me-3">
+                        <span class="rounded-circle btn-sm-square border">
+                            <i class="fas fa-random"></i>
+                        </span>
+                    </a>
+
+                    <a href="#"
+                       class="text-primary d-flex align-items-center justify-content-center me-0">
+                        <span class="rounded-circle btn-sm-square border">
+                            <i class="fas fa-heart"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+```
