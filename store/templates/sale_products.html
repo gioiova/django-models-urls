@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block title %}Sale Products{% endblock %} 
 
 {% block content %}
-<h1>Sale Products</h1>
+<h1>Sale Products ({{sale_products.count}})</h1>
 <div class="row g-4">
 
     {% for product in sale_products %}
