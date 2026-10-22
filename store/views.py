@@ -4,7 +4,7 @@ from store.models import Product,Category
 from django.db.models import Count
 from django.urls import reverse_lazy
 from store.forms import ProductForm
-from django.views.generic import ListView,CreateView,UpdateView,DetailView
+from django.views.generic import ListView,CreateView,UpdateView,DetailView,DeleteView
 
 # Create your views here.
 # def index(request):
@@ -39,18 +39,18 @@ from django.views.generic import ListView,CreateView,UpdateView,DetailView
 
 
 
-def delete_product(request,product_id):
-    product = get_object_or_404(Product,id = product_id)
+# def delete_product(request,product_id):
+#     product = get_object_or_404(Product,id = product_id)
     
-    if request.method =='POST':
-        product.delete()
-        return redirect('store:index')
+#     if request.method =='POST':
+#         product.delete()
+#         return redirect('store:index')
     
-    return render(
-        request,
-        'delete_product.html',
-        {'product':product}
-    )
+#     return render(
+#         request,
+#         'delete_product.html',
+#         {'product':product}
+#     )
     
 class IndexView(ListView):
     model = Product
@@ -108,3 +108,10 @@ class CategoryView(DetailView):
             category=self.object
         ).order_by('price')
         return context
+ 
+class ProductDeleteView(DeleteView):
+    model = Product
+    template_name = 'delete_product.html'
+    pk_url_kwarg = 'product_id'
+    success_url = reverse_lazy('store:index')
+

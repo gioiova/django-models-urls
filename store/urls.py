@@ -1,5 +1,5 @@
 from django.urls import path
-from store.views import IndexView,delete_product,SaleProductListView,ProductDetailView,ProductCreateView,CategoryView
+from store.views import ProductDeleteView,IndexView,SaleProductListView,ProductDetailView,ProductCreateView,CategoryView
 
 app_name='store'
 
@@ -14,5 +14,6 @@ urlpatterns = [
     path('product/<int:product_id>/', ProductDetailView.as_view(), name='product_detail'),
     # path('add_product/', add_product, name='add_product'),
     path('add_product/', ProductCreateView.as_view(), name='add_product'),
-    path('delete_product/<int:product_id>/',delete_product,name='delete_product'),
+    # path('delete_product/<int:product_id>/',delete_product,name='delete_product'),
+    path('delete_product/<int:product_id>/',ProductDeleteView.as_view(),name='delete_product'),
 ]

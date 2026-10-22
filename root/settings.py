@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     "debug_toolbar",
     
     #local
-    'store.apps.StoreConfig'
+    'store.apps.StoreConfig',
+    'user.apps.UserConfig'
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -152,3 +153,5 @@ MAILERS = {
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+AUTH_USER_MODEL = "user.CustomUser"
