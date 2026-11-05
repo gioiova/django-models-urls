@@ -52,6 +52,12 @@
                 Detail View
             </a>
 
+            {% if user == product.user %}
+            <a href="{% url 'store:update_product' product.id %}" class="btn btn-primary border-secondary rounded-pill py-2 px-4 mb-4">
+                <i class="fas fa-shopping-cart me-2"></i>
+                Update Product
+            </a>
+            {% endif %}
             <div class="d-flex justify-content-between align-items-center">
                 <div class="d-flex">
                     <i class="fas fa-star text-primary"></i>

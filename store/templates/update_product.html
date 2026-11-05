@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+
+{% block title %}Update Product{% endblock %}
+
+{% block content %}
+    <form method="post" style="width: 500px; margin: 0 auto;" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button class="btn btn-success" type="submit">UpdateProduct</button>
+    </form>
+{% endblock %}

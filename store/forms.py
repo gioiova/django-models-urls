@@ -14,4 +14,8 @@ class ProductForm(forms.ModelForm):
         model = Product
         #fields = '__all__'
         exclude = ['is_sale','user']
-    
+
+class ProductUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = '__all__'    

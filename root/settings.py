@@ -69,6 +69,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'store.middleware.MaintenanceModeMiddleware',
 ]
 
 ROOT_URLCONF = 'root.urls'
@@ -159,3 +160,5 @@ INTERNAL_IPS = [
 ]
 
 AUTH_USER_MODEL = "user.CustomUser"
+
+# MAINTENANCE_MODE = True
