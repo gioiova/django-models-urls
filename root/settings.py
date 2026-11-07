@@ -53,7 +53,10 @@ INSTALLED_APPS = [
     
     #local
     'store.apps.StoreConfig',
-    'user.apps.UserConfig'
+    'user.apps.UserConfig',
+    
+    #Rest Framework
+     "rest_framework",
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -149,11 +152,11 @@ LOGIN_URL = 'user:login'
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
-MAILERS = {
-    'default': {
-        'BACKEND': 'django.core.mail.backends.console.EmailBackend',
-    },
-}
+# MAILERS = {
+#     'default': {
+#         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
+#     },
+# }
 
 INTERNAL_IPS = [
     "127.0.0.1",
@@ -162,3 +165,17 @@ INTERNAL_IPS = [
 AUTH_USER_MODEL = "user.CustomUser"
 
 # MAINTENANCE_MODE = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+
+
+#pagination settings for rest framework
+REST_FRAMEWORK = {
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 2,
+}
